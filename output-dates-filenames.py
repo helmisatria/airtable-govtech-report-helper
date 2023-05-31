@@ -46,7 +46,7 @@ for item in data_sorted:
         activity = fields.get('Log Aktivitas', '')
 
         # Check if the activity is "Cuti/cuti" or "Libur/libur" and adjust the filename accordingly
-        if 'cuti' in activity.lower():
+        if re.search(r'\bcuti\b', activity.lower()):
             filename = f"{date_obj.strftime('%m-%d')} - Bukti Approval - Cuti Tahunan.png"
         elif 'libur' in activity.lower():
             filename = ''
